@@ -1,13 +1,22 @@
+# Use Maven to build the project
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+
+WORKDIR /app
+
+COPY pom.xml ./
+RUN mvn dependency:go-offline
+
+COPY . ./
+RUN mvn clean package -DskipTests
+
+# Use Tomcat to deploy the WAR
 FROM tomcat:10-jdk17
 
-# Clean default webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy your WAR file as ROOT.war to auto-deploy
-COPY target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
+# Copy the built WAR file from previous stage
+COPY --from=build /app/target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose port
 EXPOSE 8080
 
-# Start Tomcat
 CMD ["catalina.sh", "run"]
