@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #e1f5fe);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #0077b6;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #0077b6;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #0077b6;
+    outline: none;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0077b6;
+}
+
+.register-btn {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.register-btn:hover {
+    background-color: #005f8a;
+}
+
+.login-link {
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #0077b6;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Rules Box Styles */
+#rules-box {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 8px;
+    display: none;
+    font-size: 14px;
+}
+
+#rules-box p {
+    margin: 6px 0;
+}
+
+.valid {
+    color: green;
+}
+
+.valid span::before {
+    content: "✅ ";
+}
+
+.invalid {
+    color: red;
+}
+
+.invalid span::before {
+    content: "❌ ";
+}
+
+#password.valid-border {
+    border: 2px solid green;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .register-container {
+        padding: 20px;
+    }
+
+    .register-btn {
+        padding: 8px;
+    }
+}

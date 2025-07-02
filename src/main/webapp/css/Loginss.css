@@ -1,0 +1,152 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('../Background/photo-1504274066651-8d31a536b11a.avif') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+   
+  
+  }
+  
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for contrast */
+    z-index: 0;
+  }
+  
+  .login-wrapper {
+    position: relative;
+    z-index: 1;
+    background: rgba(239, 232, 232, 0.85);  /* Semi-transparent form */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    animation: slideFade 1s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+  }
+  
+  .login-wrapper:hover {
+    transform: scale(1.03);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+    opacity: 0.92;  /* Slightly more transparent on hover */
+  }
+  
+  
+  @keyframes slideFade {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .login-container h2 {
+    font-size: 1.6rem;
+    color: #0077b6;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    font-weight: 600;
+    color: #0077b6;
+    margin-bottom: 6px;
+    display: block;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .login-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+  }
+  
+  .login-btn {
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #00b4d8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+
+  }
+  
+.login-btn a{
+    color: inherit;
+    text-decoration: none;
+  
+    width: 100%;
+    height: 100%;
+}
+  .login-btn:hover {
+    background-color: #0077b6;
+    transform: scale(1.03);
+  }
+  
+  .forgot-link {
+    margin-top: 14px;
+    text-align: center;
+  }
+  
+  .forgot-link a {
+    text-decoration: none;
+    color: #0077b6;
+    font-size: 0.9rem;
+  }
+  
+  .forgot-link a:hover {
+    color: #023e8a;
+  }
+  
+  @media (max-width: 768px) {
+    .login-wrapper {
+      width: 90%;
+      padding: 25px;
+    }
+  }
+  

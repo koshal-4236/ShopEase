@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100vh;
+    background: linear-gradient(to right, #d0eaff, #e0f7fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .success-container {
+    background: #fff;
+    padding: 40px 60px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  .checkmark-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    animation: popIn 0.6s ease-out forwards;
+  }
+
+  .checkmark {
+    width: 25px;
+    height: 50px;
+    border-right: 6px solid white;
+    border-bottom: 6px solid white;
+    transform: rotate(45deg) scale(0);
+    animation: drawCheck 0.4s ease 0.6s forwards;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .countdown {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* Animations */
+  @keyframes popIn {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes drawCheck {
+    to {
+      transform: rotate(45deg) scale(1);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .success-container {
+      padding: 30px 20px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p, .countdown {
+      font-size: 1rem;
+    }
+  }
+    .countdown {
+        font-weight: bold;
+        color: #FF5722;
+    }
