@@ -1,14 +1,13 @@
-# Use official Tomcat base image with JDK 17
+# Stage 1: Build
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
+
+# Stage 2: Deploy
 FROM tomcat:10-jdk17
-
-# Clean default webapps (optional, but recommended)
 RUN rm -rf /usr/local/tomcat/webapps/*
-
-# Copy your WAR file and rename it to ROOT.war for clean URL
-COPY target/shopping-ecom.war /usr/local/tomcat/webapps/ROOT.war
-
-# Expose port 8080 for external access
+COPY --from=build /app/target/shopping-ecom.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080
-
-# Start Tomcat server
 CMD ["catalina.sh", "run"]
