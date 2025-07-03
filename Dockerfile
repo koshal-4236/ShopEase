@@ -1,22 +1,14 @@
-# Use Maven to build the project
-FROM maven:3.9.6-eclipse-temurin-17 AS build
-
-WORKDIR /app
-
-COPY pom.xml ./
-RUN mvn dependency:go-offline
-
-COPY . ./
-RUN mvn clean package -DskipTests
-
-# Use Tomcat to deploy the WAR
+# Use official Tomcat base image with JDK 17
 FROM tomcat:10-jdk17
 
+# Clean default webapps (optional, but recommended)
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy the built WAR file from previous stage
-COPY --from=build /app/target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
+# Copy your WAR file and rename it to ROOT.war for clean URL
+COPY target/shopping-ecom.war /usr/local/tomcat/webapps/ROOT.war
 
+# Expose port 8080 for external access
 EXPOSE 8080
 
+# Start Tomcat server
 CMD ["catalina.sh", "run"]
