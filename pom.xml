@@ -60,7 +60,7 @@
   </dependencies>
   
    <build>
-    <finalName>ROOT</finalName> <!-- This makes it ROOT.war -->
+    <finalName>shopping-ecom</finalName> <!-- This makes it ROOT.war -->
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
